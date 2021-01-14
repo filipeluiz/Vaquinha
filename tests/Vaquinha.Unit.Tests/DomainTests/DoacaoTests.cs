@@ -63,7 +63,7 @@ namespace Vaquinha.Unit.Tests.DomainTests
         [InlineData(-10.20)]
         [InlineData(-55.4)]
         [InlineData(-0.1)]
-        [InlineData(0.5)] // Esse não é menor que zero, o teste passou... achei estranho
+        [InlineData(0.5)] // Esse não é menor ou igual a zero, o teste passou... achei estranho
         [Trait("Doacao", "Doacao_ValoresDoacaoMenorIgualZero_DoacaoInvalida")]
         public void Doacao_ValoresDoacaoMenorIgualZero_DoacaoInvalida(double valorDoacao)
         {
@@ -91,7 +91,6 @@ namespace Vaquinha.Unit.Tests.DomainTests
         public void Doacao_ValoresDoacaoMaiorLimite_DoacaoInvalida(double valorDoacao)
         {
             // Arrange
-            const bool EXCEDER_MAX_VALOR_DOACAO = true;
             var doacao = _doacaoFixture.DoacaoValida(false, valorDoacao);
             doacao.AdicionarEnderecoCobranca(_enderecoFixture.EnderecoValido());
             doacao.AdicionarFormaPagamento(_cartaoCreditoFixture.CartaoCreditoValido());
