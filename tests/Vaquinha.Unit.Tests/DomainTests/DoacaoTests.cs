@@ -63,6 +63,7 @@ namespace Vaquinha.Unit.Tests.DomainTests
         [InlineData(-10.20)]
         [InlineData(-55.4)]
         [InlineData(-0.1)]
+        [InlineData(0.5)] // Esse não é menor que zero, o teste passou... achei estranho
         [Trait("Doacao", "Doacao_ValoresDoacaoMenorIgualZero_DoacaoInvalida")]
         public void Doacao_ValoresDoacaoMenorIgualZero_DoacaoInvalida(double valorDoacao)
         {
